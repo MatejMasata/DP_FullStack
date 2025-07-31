@@ -1,0 +1,17 @@
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.8;
+}

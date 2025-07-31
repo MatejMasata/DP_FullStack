@@ -1,0 +1,105 @@
+.container {
+  padding: 1rem 4rem;
+  margin: 0 auto;
+  max-width: 95%;
+  color: #333;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  color: #333;
+  margin-top: 50px;
+}
+
+.contentArea {
+  margin-top: 0;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.imageCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  cursor: pointer;
+}
+
+.imageWrapper:hover img {
+  transform: scale(1.05);
+}
+
+.imageCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cardFooter {
+  padding: 15px;
+  border-top: 1px solid #eee;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardInfo {
+  text-align: center;
+}
+
+.fileName {
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+/* LINK TREES BUTTON
+    rougly the same as + add new / + upload new buttons */
+.linkButton {
+  background-color: #3cb371;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.linkButton:hover {
+  background-color: #2e8b57;
+  transform: translateY(-1px);
+}

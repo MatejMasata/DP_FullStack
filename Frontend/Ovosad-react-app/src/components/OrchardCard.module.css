@@ -1,0 +1,108 @@
+.orchardBox {
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 320px;
+  flex: 1;
+  margin: 0;
+  position: relative;
+  padding-bottom: 20px; /* button height + margin */
+}
+
+.orchardBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.orchardHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  min-height: 40px;
+  margin-top: 20px;
+}
+
+.orchardDetailLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.orchardDetailLine:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.orchardDetailLine span:first-child {
+  font-weight: 500;
+  color: #555;
+}
+
+.orchardDetailLine span:last-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.icon {
+  font-size: 2.2em;
+  color: #3cb371;
+}
+
+.orchardName {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* ORCHARD ROLE BADGE */
+.orchardRoleBadge {
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 10;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific colors based on role */
+.orchardRoleBadge[data-role="globaladmin"] {
+  background-color: #ffb300;
+  color: #333;
+}
+
+.orchardRoleBadge[data-role="admin"] {
+  background-color: #3cb371;
+  color: white;
+}
+
+.orchardRoleBadge[data-role="viewer"] {
+  background-color: #64b5f6;
+  color: white;
+}
+
+/* Kebab menu */
+.orchardBox > div[class*="kebabMenuWrapper"] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+}

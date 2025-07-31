@@ -1,0 +1,172 @@
+.container {
+  padding: 1rem 4rem;
+  margin: 0 auto;
+  max-width: 95%;
+  color: #333;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  color: #333;
+  margin-top: 50px;
+}
+
+/* Layout for two columns */
+.treeDetailsLayout {
+  display: flex;
+  gap: 30px; /* Space between columns */
+  margin-top: 30px;
+}
+
+/* Left Column: Tree Info */
+.treeInfoColumn {
+  flex: 0 0 15%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  min-width: 250px;
+  position: relative;
+}
+
+.treeInfoColumn h2 {
+  font-size: 1.8em;
+  color: #3cb371;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.createButtonRow {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.detailItem {
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.detailItem strong {
+  color: #555;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* KebabMenu - tree */
+.treeKebabMenuWrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+/* Right Column: Dynamic Data */
+.dynamicDataColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Options buttons */
+.displayOptions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.displayOptions button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.displayOptions button:hover {
+  background-color: #2e8b57;
+  color: white;
+  border-color: #2e8b57;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.displayOptions .activeButton {
+  background-color: #3cb371;
+  color: white;
+  border-color: #3cb371;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.displayOptions .activeButton:hover {
+  background-color: #2e8b57;
+  border-color: #2e8b57;
+}
+
+.contentArea {
+  margin-top: 0;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.noTreesMessage {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Gap between two buttons in Tree Image*/
+.galleryControls {
+  gap: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .treeDetailsLayout {
+    flex-direction: column;
+  }
+
+  .treeInfoColumn {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .container {
+    padding: 1rem 2rem;
+    max-width: 95%;
+  }
+
+  .displayOptions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}

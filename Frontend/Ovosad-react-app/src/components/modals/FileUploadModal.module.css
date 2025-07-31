@@ -1,0 +1,82 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+  background-color: #f9f9f9;
+}
+
+.dropzone.active {
+  border-color: #28a745;
+  background-color: #e8f5e9;
+}
+
+.dropzone.disabled {
+  cursor: not-allowed;
+  background-color: #f1f1f1;
+  color: #999;
+}
+
+.fileList {
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  min-height: 50px;
+}
+
+.fileList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.fileList li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fileList li span {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.fileList li.success span {
+  color: #28a745;
+}
+
+.fileList li.error span {
+  color: #dc3545;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 0.8em;
+  margin: 5px 0 0 0;
+  width: 100%;
+}

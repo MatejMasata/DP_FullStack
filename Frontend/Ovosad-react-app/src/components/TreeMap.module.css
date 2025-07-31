@@ -1,0 +1,113 @@
+.mapContainerWrapper {
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+  height: 780px;
+}
+
+.leafletContainer {
+  height: 750px;
+  width: 70%;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.greenText {
+  color: #3cb371;
+}
+
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Popup */
+.leaflet-popup-content strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.hoverInfoPanel {
+  flex-grow: 1;
+  max-width: 30%;
+  min-width: 250px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  font-size: 1em;
+  line-height: 1.6;
+  height: 750px;
+}
+
+.hoverInfoPanel h3 {
+  margin-top: 0;
+  color: #3cb371;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.detailRow strong {
+  flex-shrink: 0;
+}
+
+.detailRow span {
+  text-align: right;
+  flex-grow: 1;
+  margin-left: 10px;
+  word-break: break-word;
+}
+
+.noHoverMessage {
+  text-align: center;
+  padding-top: 50px;
+  font-style: italic;
+  color: #888;
+}
+
+.noMapDataMessage {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive adjustments*/
+@media (max-width: 1200px) {
+  .mapContainerWrapper {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .leafletContainer {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    margin-bottom: 20px;
+  }
+
+  .hoverInfoPanel {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+}

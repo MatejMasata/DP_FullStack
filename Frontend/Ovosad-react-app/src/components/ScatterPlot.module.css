@@ -1,0 +1,129 @@
+.scatterPlotContainerWrapper {
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden; /* Prevent unwanted scrollbars if content overflows */
+  height: 780px;
+}
+
+.scatterPlotSvg {
+  width: 70%;
+  height: 750px;
+  flex-shrink: 0; /* Prevents SVG from shrinking below its content */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 0.9em;
+  line-height: 1.4;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+/* Axis Labels */
+.axisLabel {
+  font-size: 1.1em;
+  font-weight: bold;
+  fill: #333;
+}
+
+/* Axis Ticks */
+.axis line,
+.axis path {
+  stroke: #ccc;
+}
+
+.axis text {
+  font-size: 0.9em;
+  fill: #666;
+}
+
+/* Info Panel */
+.hoverInfoPanel {
+  flex-grow: 1;
+  max-width: 30%;
+  min-width: 250px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  font-size: 1em;
+  line-height: 1.6;
+  height: 750px;
+  overflow-y: auto;
+}
+
+.hoverInfoPanel h3 {
+  margin-top: 0;
+  color: #3cb371;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.detailRow strong {
+  flex-shrink: 0;
+}
+
+.detailRow span {
+  text-align: right;
+  flex-grow: 1;
+  margin-left: 10px;
+  word-break: break-word;
+}
+
+.noHoverMessage {
+  text-align: center;
+  padding-top: 50px;
+  font-style: italic;
+  color: #888;
+}
+
+/* Popup */
+.greenText {
+  color: #3cb371;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .scatterPlotContainerWrapper {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .scatterPlotSvg {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    margin-bottom: 20px;
+  }
+
+  .hoverInfoPanel {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+}

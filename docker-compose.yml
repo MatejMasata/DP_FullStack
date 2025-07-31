@@ -1,0 +1,111 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./Frontend/Ovosad-react-app
+    ports:
+      - "3000:80"
+    networks:
+      - fms-postgres
+    depends_on:
+      - api
+
+  api:
+    build: ./Backend/ovosad4-FMS
+    image: ovosad-fms
+    command: "fastapi run main.py --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./Secrets/postgres_password.env
+      - ./Secrets/mapycz_API_key.env
+    environment:
+      FILE_STORAGE_DIRECTORY: "/app/data"
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: fms-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DATABASE: postgres
+      KEYCLOAK_ADMIN_USERNAME: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_SERVER_URL: http://keycloak:8080 # For internal calls to Keycloak (fetching JWKS)
+      KEYCLOAK_PUBLIC_SERVER_URL: http://localhost:8080 # For validating the 'iss' claim in tokens
+      KEYCLOAK_REALM: OrchardRealm
+    volumes:
+      - ~/ovosad-data:/app/data
+    networks:
+      - fms-postgres
+    depends_on:
+      fms-postgres:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  fms-postgres:
+    image: postgres:13-alpine
+    restart: "no"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Separate database and schema for keycloak
+      - ./Backend/Keycloak/keycloak-init-db.sql:/docker-entrypoint-initdb.d/keycloak-init-db.sql
+    env_file:
+      - ./Secrets/postgres_password.env
+    environment:
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+    networks:
+      - fms-postgres
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.2.4
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Backend/Keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json
+    env_file:
+      - ./Secrets/postgres_password.env
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: "jdbc:postgresql://fms-postgres:5432/keycloak_db"
+      KC_DB_SCHEMA: keycloak_schema
+      KC_DB_USERNAME: postgres
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+      KEYCLOAK_IMPORT: /opt/keycloak/data/import/realm-export.json
+    command: ["start-dev", "--http-port", "8080", "--import-realm"]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "exec 3<>/dev/tcp/127.0.0.1/9000;echo -e \"GET /health/ready HTTP/1.1\\r\\nhost: localhost:9000\\r\\nConnection: close\\r\\n\\r\\n\" >&3;grep \"HTTP/1.1 200 OK\" <&3",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    depends_on:
+      fms-postgres:
+        condition: service_healthy
+    networks:
+      - fms-postgres
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025" # Web UI
+      - "1025:1025" # SMTP
+    networks:
+      - fms-postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  fms-postgres:
+    name: fms-postgres

@@ -1,0 +1,141 @@
+.tableContainer {
+  padding: 15px;
+  -webkit-overflow-scrolling: touch;
+  height: 780px;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.flowerThinningTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  display: block;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.flowerThinningTable thead {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.flowerThinningTable tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: calc(100% - 48px);
+  width: 100%;
+}
+
+.flowerThinningTable thead tr,
+.flowerThinningTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.flowerThinningTable th,
+.flowerThinningTable td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.flowerThinningTable th {
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  background-color: inherit;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.flowerThinningTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.flowerThinningTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.flowerThinningTable tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Column widths for FlowerThinningTable */
+.flowerThinningTable th:nth-child(1), /* ID */
+.flowerThinningTable td:nth-child(1) {
+  width: 5%;
+}
+.flowerThinningTable th:nth-child(2), /* Date & Time */
+.flowerThinningTable td:nth-child(2) {
+  width: 10%;
+}
+.flowerThinningTable th:nth-child(3), /* Spraying ID */
+.flowerThinningTable td:nth-child(3) {
+  width: 8%;
+}
+.flowerThinningTable th:nth-child(4), /* Mechanical */
+.flowerThinningTable td:nth-child(4) {
+  width: 8%;
+}
+.flowerThinningTable th:nth-child(5), /* Clusters Before */
+.flowerThinningTable td:nth-child(5) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(6), /* Clusters For Thinning */
+.flowerThinningTable td:nth-child(6) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(7), /* Clusters After */
+.flowerThinningTable td:nth-child(7) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(8), /* Clusters Before (1-Yr) */
+.flowerThinningTable td:nth-child(8) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(9), /* Clusters For Thinning (1-Yr) */
+.flowerThinningTable td:nth-child(9) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(10), /* Clusters After (1-Yr) */
+.flowerThinningTable td:nth-child(10) {
+  width: 9%;
+}
+.flowerThinningTable th:nth-child(11), /* Note */
+.flowerThinningTable td:nth-child(11) {
+  width: 10%;
+}
+.flowerThinningTable th:nth-child(12), /* Actions */
+.flowerThinningTable td:nth-child(12) {
+  width: 5%;
+  text-align: center;
+}
+
+.noDataMessage {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+}

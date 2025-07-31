@@ -1,0 +1,188 @@
+/* NAVBAR */
+
+.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.siteTitle {
+  font-size: 2rem;
+  color: #3cb371;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.siteTitle:hover {
+  color: #2e8b57;
+}
+
+/* MAIN NAVIGATION LINKS */
+.mainNavLinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 0.5rem 0.5rem;
+  border-bottom: 2px solid transparent; /* For hover effect */
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #2e8b57;
+  border-color: #3cb371;
+}
+
+/* AUTH BUTTONS */
+
+.authLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style-type: none;
+}
+
+/* General style for auth buttons (Login/Register) */
+.authButton {
+  background: none;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Login button*/
+.loginButton {
+  background-color: white;
+  color: #333;
+  border-color: #333;
+}
+
+.loginButton:hover {
+  background-color: #f0f0f0;
+}
+
+/* Register button */
+.registerButton {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.registerButton:hover {
+  background-color: #666;
+}
+
+/* NAVBAR USER DROP DOWN MENU */
+
+.userMenuContainer {
+  position: relative;
+}
+
+.userMenuContainer button {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.userMenuContainer button:hover {
+  background-color: #666;
+}
+
+.dropdownArrow {
+  margin-left: 0.5rem;
+  font-size: 0.8em;
+  line-height: 1; /* Aligns the arrow vertically */
+}
+
+.userDropdown {
+  position: absolute;
+  top: calc(100% + 5px); /* Position below the button */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.userDropdown a {
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.userDropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .mainNavLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .navLink {
+    padding: 0.5rem 0;
+  }
+
+  .authLinks {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .authButton {
+    padding: 0.8rem 1rem;
+  }
+
+  .siteTitle {
+    font-size: 1.8rem;
+  }
+}

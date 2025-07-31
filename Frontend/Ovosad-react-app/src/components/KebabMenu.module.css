@@ -1,0 +1,155 @@
+/* KEBAB MENU*/
+.kebabMenuWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* KEBAB MENU BUTTON */
+.kebabMenuButton {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.kebabMenuButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* Kebab Menu Dropdown Container */
+.kebabMenuDropdown {
+  background-color: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+/* Menu Item */
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.menuItem:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.menuItem:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Delete menu */
+.deleteMenuItem {
+  color: #d9534f;
+  background-color: transparent;
+}
+
+.deleteMenuItem:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  color: #d9534f;
+}
+
+/* TOAST */
+.toastContainer {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  max-width: 350px;
+  text-align: center;
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.toastEnter {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.toastExit {
+  animation: fade-out 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.toastMessage {
+  font-size: 1.1em;
+  color: #333;
+  margin: 0;
+}
+
+.toastButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.toastConfirmButton,
+.toastCancelButton {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  flex: 1;
+  transition: background-color 0.2s ease;
+}
+
+.toastConfirmButton {
+  background-color: #d9534f;
+  color: white;
+}
+
+.toastConfirmButton:hover {
+  background-color: #c9302c;
+}
+
+.toastCancelButton {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.toastCancelButton:hover {
+  background-color: #e0e0e0;
+}

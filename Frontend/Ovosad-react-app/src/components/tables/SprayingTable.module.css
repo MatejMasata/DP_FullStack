@@ -1,0 +1,119 @@
+.tableContainer {
+  padding: 15px;
+  -webkit-overflow-scrolling: touch;
+  height: 780px;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.sprayingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  display: block;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.sprayingTable thead {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Ensure header is above table content */
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.sprayingTable tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: calc(100% - 48px);
+  width: 100%;
+}
+
+.sprayingTable thead tr,
+.sprayingTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.sprayingTable th,
+.sprayingTable td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.sprayingTable th {
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  background-color: inherit;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.sprayingTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.sprayingTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.sprayingTable tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Column widths for SprayingTable (ID, Date & Time, Agent Name, Volume, Note, Actions) - 6 columns total */
+.sprayingTable th:nth-child(1), /* ID */
+.sprayingTable td:nth-child(1) {
+  width: 8%;
+}
+.sprayingTable th:nth-child(2), /* Date & Time */
+.sprayingTable td:nth-child(2) {
+  width: 20%;
+}
+.sprayingTable th:nth-child(3), /* Agent Name */
+.sprayingTable td:nth-child(3) {
+  width: 20%;
+}
+.sprayingTable th:nth-child(4), /* Volume */
+.sprayingTable td:nth-child(4) {
+  width: 10%;
+}
+.sprayingTable th:nth-child(5), /* Note */
+.sprayingTable td:nth-child(5) {
+  width: 35%;
+}
+.sprayingTable th:nth-child(6), /* Actions */
+.sprayingTable td:nth-child(6) {
+  width: 7%;
+  position: relative;
+  text-align: center;
+}
+
+/* NoDataMessage styling */
+.noDataMessage {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+}

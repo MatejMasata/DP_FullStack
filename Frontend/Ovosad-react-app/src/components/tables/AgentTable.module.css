@@ -1,0 +1,118 @@
+.tableContainer {
+  padding: 15px;
+  -webkit-overflow-scrolling: touch;
+  height: 780px;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.agentTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  display: block;
+  height: 100%;
+  table-layout: fixed;
+}
+
+.agentTable thead {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.agentTable tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: calc(100% - 48px);
+  width: 100%;
+}
+
+.agentTable thead tr,
+.agentTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.agentTable th,
+.agentTable td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.agentTable th {
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  background-color: inherit;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.agentTable td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.agentTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.agentTable tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Column widths for AgentTable (ID, Name, Description, Note, Number of Sprayings, Actions) - 6 columns total */
+.agentTable th:nth-child(1), /* ID */
+.agentTable td:nth-child(1) {
+  width: 8%;
+}
+.agentTable th:nth-child(2), /* Name */
+.agentTable td:nth-child(2) {
+  width: 18%;
+}
+.agentTable th:nth-child(3), /* Description */
+.agentTable td:nth-child(3) {
+  width: 30%;
+}
+.agentTable th:nth-child(4), /* Note */
+.agentTable td:nth-child(4) {
+  width: 25%;
+}
+.agentTable th:nth-child(5), /* Number of Sprayings */
+.agentTable td:nth-child(5) {
+  width: 12%;
+}
+.agentTable th:nth-child(6), /* Actions */
+.agentTable td:nth-child(6) {
+  width: 7%;
+  position: relative;
+  text-align: center;
+}
+
+.noDataMessage {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+}
