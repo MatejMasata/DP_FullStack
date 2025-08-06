@@ -119,7 +119,13 @@ export function OrchardDetails() {
     },
     onError: (error) => {
       console.error("Error deleting tree:", error);
-      toast.error(error.message || "Failed to delete tree.");
+      if (error.message && error.message.includes("500")) {
+        toast.error(
+          "Deletion failed. This item has related records that must be removed first."
+        );
+      } else {
+        toast.error(error.message || "Failed to delete tree.");
+      }
     },
   });
 

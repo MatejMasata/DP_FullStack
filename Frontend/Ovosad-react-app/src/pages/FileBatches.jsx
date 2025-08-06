@@ -61,8 +61,16 @@ export function FileBatches() {
       queryClient.invalidateQueries({ queryKey: ["fileBatches"] });
       toast.success("File batch deleted successfully!");
     },
-    onError: (err) =>
-      toast.error(err.message || "Failed to delete file batch."),
+    onError: (error) => {
+      console.error("Error deleting file batch:", error);
+      if (error.message && error.message.includes("500")) {
+        toast.error(
+          "Deletion failed. This item has related records that must be removed first."
+        );
+      } else {
+        toast.error(error.message || "Failed to delete file batch.");
+      }
+    },
   });
 
   // HANDLERS

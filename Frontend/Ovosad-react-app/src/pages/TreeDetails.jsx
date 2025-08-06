@@ -326,7 +326,14 @@ export function TreeDetails() {
       navigate(`/orchard/${treeDetails?.orchard_id}`);
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to delete tree.");
+      console.error("Error deleting tree:", error);
+      if (error.message && error.message.includes("500")) {
+        toast.error(
+          "Deletion failed. This item has related records that must be removed first."
+        );
+      } else {
+        toast.error(error.message || "Failed to delete tree.");
+      }
     },
   });
 
@@ -423,7 +430,14 @@ export function TreeDetails() {
       toast.success("Spraying deleted successfully!");
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to delete spraying.");
+      console.error("Error deleting spraying:", error);
+      if (error.message && error.message.includes("500")) {
+        toast.error(
+          "Deletion failed. This item has related records that must be removed first."
+        );
+      } else {
+        toast.error(error.message || "Failed to delete spraying.");
+      }
     },
   });
 

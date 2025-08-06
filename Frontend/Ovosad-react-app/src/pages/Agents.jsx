@@ -89,7 +89,13 @@ export function Agents() {
     },
     onError: (error) => {
       console.error("Error deleting agent:", error);
-      toast.error(error.message || "Failed to delete agent. Please try again.");
+      if (error.message && error.message.includes("500")) {
+        toast.error(
+          "Deletion failed. This item has related records that must be removed first."
+        );
+      } else {
+        toast.error(error.message || "Failed to delete agent.");
+      }
     },
   });
 
