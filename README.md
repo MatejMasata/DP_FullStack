@@ -42,7 +42,9 @@ It also contains files to seed the database with mock data, which might be usefu
     MAPY_CZ_API_KEY="your mapy cz API key"
    ```
 
-   You need to enter the passwords for Keycloak and Postgres databases. You can use whatever you like, but it's recomended to use strong password.
+   You need to enter the password for Postgres user. You can use whatever you like, but it's recomended to use strong password.
+
+   Both passwords must be the same!
 
    ```
     POSTGRES_PASSWORD=YourStrongPassword123.
