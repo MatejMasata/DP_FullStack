@@ -49,7 +49,7 @@ async def update_file_batch(
     file_batch_id: int,
     file_batch: UpdateFileBatchSchema = Body(...),
     session: Session = Depends(create_session),
-    # Requires GLOBAL ADMIN access
+    # User must have ADMIN ACCESS to atleast one orchard
     permissions: UserOrchardPermissions = Depends(verify_any_orchard_admin_access)
 ) -> FileBatchSchema:
     # The dependency chain handles authorization
@@ -60,7 +60,7 @@ async def update_file_batch(
 async def delete_file_batch(
     file_batch_id: int,
     session: Session = Depends(create_session),
-    # Requires GLOBAL ADMIN access
+    # User must have ADMIN ACCESS to atleast one orchard
     permissions: UserOrchardPermissions = Depends(verify_any_orchard_admin_access)
 ) -> FileBatchSchema:
     # The dependency chain handles authorization
